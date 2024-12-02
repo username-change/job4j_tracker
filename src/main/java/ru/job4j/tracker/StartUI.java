@@ -1,5 +1,18 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.action.CreateAction;
+import ru.job4j.tracker.action.DeleteAction;
+import ru.job4j.tracker.action.ExitAction;
+import ru.job4j.tracker.action.FindAllAction;
+import ru.job4j.tracker.action.FindByIdAction;
+import ru.job4j.tracker.action.FindByNameAction;
+import ru.job4j.tracker.action.ReplaceAction;
+import ru.job4j.tracker.action.UserAction;
+import ru.job4j.tracker.input.ConsoleInput;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.ConsoleOutput;
+import ru.job4j.tracker.output.Output;
+
 public class StartUI {
 	private final Output output;
 
