@@ -1,12 +1,9 @@
 package ru.job4j.queue;
 
-import java.util.ArrayList;
 import java.util.Deque;
-import java.util.List;
 
 public class ReconstructPhrase {
 	private final Deque<Character> descendingElements;
-
 	private final Deque<Character> evenElements;
 
 	public ReconstructPhrase(Deque<Character> descendingElements, Deque<Character> evenElements) {
@@ -16,20 +13,23 @@ public class ReconstructPhrase {
 
 	private String getEvenElements() {
 		StringBuilder sb = new StringBuilder();
-		List<Character> evenList = new ArrayList<>(evenElements);
-		for (int i = 0; i < evenList.size(); i++) {
+		int initialSize = evenElements.size();
+		for (int i = 0; i < initialSize; i++) {
 			if (i % 2 == 0) {
-				sb.append(evenList.get(i));
+				sb.append(evenElements.pollFirst());
+			} else {
+				evenElements.pollFirst();
 			}
+
 		}
 		return sb.toString();
 	}
 
 	private String getDescendingElements() {
 		StringBuilder sb = new StringBuilder();
-		List<Character> descendingList = new ArrayList<>(descendingElements);
-		for (int i = descendingList.size() - 1; i >= 0; i--) {
-			sb.append(descendingList.get(i));
+		int size = descendingElements.size();
+		for (int i = 0; i < size; i++) {
+			sb.append(descendingElements.pollLast());
 		}
 		return sb.toString();
 	}
