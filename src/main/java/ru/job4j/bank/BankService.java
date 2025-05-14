@@ -30,11 +30,8 @@ public class BankService {
      * @param passport паспорт пользователя, которого необходимо удалить
      */
     public void deleteUser(String passport) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            users.remove(user);
+        	users.remove(new User(passport, ""));
         }
-    }
 
     /**
      * Метод добавляет новый счет к пользователю, если счет еще не существует.
