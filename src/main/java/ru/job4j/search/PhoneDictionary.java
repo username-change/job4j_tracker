@@ -18,8 +18,8 @@ public class PhoneDictionary {
 	 */
 
 	public ArrayList<Person> findBy(Predicate<Person> filter) {
-		ArrayList<Person> result = new ArrayList<>();
-		for (Person person : persons) {
+		var result = new ArrayList<Person>();
+		for (var person : persons) {
 			if (filter.test(person)) {
 				result.add(person);
 			}
@@ -33,7 +33,7 @@ public class PhoneDictionary {
 		Predicate<Person> addressContains = person -> person.getAddress().contains(key);
 		Predicate<Person> phoneContains = person -> person.getPhone().contains(key);
 
-		Predicate<Person> combine = nameContains
+		var combine = nameContains
 				.or(surnameContains)
 				.or(addressContains)
 				.or(phoneContains);
